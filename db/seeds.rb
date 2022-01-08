@@ -10,7 +10,7 @@ puts 'done!'
 
 # Seed users
 print 'Seeding users - '
-user1 = User.create!(user_name:"John", password: "123456", email: "a@a.a")
+User.create!(user_name:"John", password: "123456", email: "a@a.a")
 user2 = User.create!(user_name:"Bob", password: "123456", email: "b@b.b")
 puts 'done!'
 
