@@ -6,13 +6,18 @@
 
 
 
-<div class = 'd-flex flex-column'>
+<div class = 'd-flex flex-column dog-card'>
+  <%# dog name %>
+  <div class = 'd-inline-flex flex-row justify-content-center name-box'>
+    <h2><%= dog.name %></h2>
+  </div>
+
   <%# dog image %>
   <div class='img-box d-flex justify-content-center align-items-center'>
     <%= cl_image_tag dog.photo.key, height: 300, width: 400, crop: :fill %>
   </div>
   <%# Dog's energy rating: %>
-  <div class='d-inline-flex flex-row align-items-center' style='background-color:#ededed'>
+  <div class='d-inline-flex flex-row align-items-center'>
     <p class='m-0'>Energy: </p>
     <% dog.energy.times do %>
       <i class="fas fa-bolt p-1" style='color:#ffc800'></i>
@@ -23,7 +28,7 @@
   </div>
 
   <%# Dog's affection rating: %>
-  <div class='d-inline-flex flex-row align-items-center' style='background-color:#ededed'>
+  <div class='d-inline-flex flex-row align-items-center'>
     <p class='m-0'>Affection: </p>
     <% dog.affection.times do %>
       <i class="fas fa-heart p-1" style='color:#cc0000'></i>
@@ -34,7 +39,7 @@
   </div>
 
   <%# Dog's size rating: %>
-  <div class='d-inline-flex flex-row align-items-center' style='background-color:#ededed'>
+  <div class='d-inline-flex flex-row align-items-center'>
     <p class='m-0'>Size: </p>
     <% dog.size.times do %>
       <i class="fas fa-dog p-1" style='color:#331d14'></i>
