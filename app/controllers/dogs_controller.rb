@@ -18,7 +18,7 @@ class DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     @dog.user = current_user
     if @dog.save
-      redirect_to my_dog_path(@dog)
+      redirect_to dog_path(@dog)
     else
       render :new
     end
@@ -46,10 +46,6 @@ class DogsController < ApplicationController
   def my_dogs
     @dogs = current_user.dogs
   end
-
-  # def my_dog
-  #   @dog = Dog.find(params[:id])
-  # end
 
   private
 
