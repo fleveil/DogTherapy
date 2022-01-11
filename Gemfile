@@ -63,3 +63,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # cloudinary gem for images
 gem 'cloudinary', '~> 1.16.0'
+
+# geocoder for coordinates
+gem 'geocoder'
