@@ -1,0 +1,77 @@
+<div class="container">
+  <h1 class="text-center mt-3">My dogs' reservations</h1>
+  <hr style="width:75%; height:4px">
+  <h2 class="text-center">New</h2>
+  <table class="table table-hover table-bordered">
+  <thead>
+      <tr>
+        <th scope="col">Dog Name</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pending.each do |reservation| %>
+      <tr>
+        <td><%= reservation.dog.name %></td>
+        <td><%= reservation.start_date %></td>
+        <td><%= reservation.end_date %></td>
+        <td>
+          <%= link_to 'accept', confirm_reservation_path(reservation), class:'btn btn-success text-white', method: :patch %>
+          <%= link_to 'decline', decline_reservation_path(reservation), class:'btn btn-danger text-white', method: :patch %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+  <h2 class="text-center">Confirmed</h2>
+  <table class="table table-hover table-bordered">
+  <thead>
+      <tr>
+        <th scope="col">Dog Name</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @confirmed.each do |reservation| %>
+      <tr>
+        <td><%= reservation.dog.name %></td>
+        <td><%= reservation.start_date %></td>
+        <td><%= reservation.end_date %></td>
+        <td>
+          <%= link_to 'decline', decline_reservation_path(reservation), class:'btn btn-danger text-white', method: :patch %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h2 class="text-center">Declined</h2>
+  <table class="table table-hover table-bordered">
+  <thead>
+      <tr>
+        <th scope="col">Dog Name</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @declined.each do |reservation| %>
+      <tr>
+        <td><%= reservation.dog.name %></td>
+        <td><%= reservation.start_date %></td>
+        <td><%= reservation.end_date %></td>
+        <td>
+          <%= link_to 'accept', confirm_reservation_path(reservation), class:'btn btn-success text-white', method: :patch %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
