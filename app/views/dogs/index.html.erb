@@ -1,6 +1,8 @@
-
+<%# title %>
 <h1 class= 'pt-2' style='text-align:center'>Any dog that tickles your fancy?</h1>
 <hr style="width:75%; height:4px">
+
+<%# Card grid %>
 <div class='d-flex justify-content-center my-4'>
   <div class='card-grid'>
     <% @dogs.each do |dog| %>
@@ -10,6 +12,5 @@
         </div>
       <% end %>
     <% end %>
-
   </div>
 </div>
