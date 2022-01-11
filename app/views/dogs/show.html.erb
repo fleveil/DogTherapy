@@ -76,10 +76,6 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-<%= link_to dogs_path do %>
-  <button type="button" class="btn btn-secondary btn-md mr-1 mb-2">Back</button>
-<% end %>
 
-<%= link_to new_dog_reservation_path(@dog) do %>
-  <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Schedule time with <%= dog.name %></button><br/>
-<% end %>
+<%= link_to "Back", dogs_path, class: "btn btn-secondary", style: 'color:white'%>
+<%= link_to "Schedule time with #{dog.name}", new_dog_reservation_path(dog), class: "btn btn-primary", style: 'color:white'%>

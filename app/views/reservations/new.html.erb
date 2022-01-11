@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class = "header_dog">Book some time with <%= @dog.name %></h1>
+
+  <%= simple_form_for [@dog, @reservation] do |f| %>
+  <%= f.input :start_date%>
+  <%= f.input :end_date%>
+  <%= f.submit class: "btn btn-primary"%>
+  <% end  %>
+
+  <%= link_to new_dog_reservation_path(@dog) do %>
+    <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Schedule time with <%= dog.name %></button><br/>
+  <% end %>
+  <p class="my-3"><%= link_to "Back", dog_path(@dog), class: "btn btn-secondary" %></p>
+</div>
