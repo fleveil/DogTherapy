@@ -74,6 +74,14 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-
-<%= link_to "Back", dogs_path, class: "btn btn-secondary", style: 'color:white'%>
-<%= link_to "Schedule time with #{@dog.name}", new_dog_reservation_path(@dog), class: "btn btn-primary", style: 'color:white'%>
+<% if @dog.user == current_user %>
+  <%= link_to edit_dog_path(@dog) do %>
+    <button type="button" class="btn btn-secondary btn-md mr-1 mb-2">Edit <%= @dog.name %>'s info</button><br/>
+  <% end %>
+  <%= link_to dog_path(@dog), method: :delete, data: { confirm: "Are you sure you want to remove #{@dog.name} from the website?" } do %>
+    <button type="button" class="btn btn-danger btn-md mr-1 mb-2">Remove <%= @dog.name %></button><br/>
+  <% end %>
+<% else %>
+  <%= link_to "Back", dogs_path, class: "btn btn-secondary", style: 'color:white'%>
+  <%= link_to "Schedule time with #{@dog.name}", new_dog_reservation_path(@dog), class: "btn btn-primary", style: 'color:white'%>
+<% end %>
