@@ -31,7 +31,7 @@ class DogsController < ApplicationController
   def update
     @dog = Dog.find(params[:id])
     if @dog.update(dog_params)
-      redirect_to my_dog_path(@dog)
+      redirect_to dog_path(@dog)
     else
       render :edit
     end
@@ -47,9 +47,9 @@ class DogsController < ApplicationController
     @dogs = current_user.dogs
   end
 
-  def my_dog
-    @dog = Dog.find(params[:id])
-  end
+  # def my_dog
+  #   @dog = Dog.find(params[:id])
+  # end
 
   private
 
