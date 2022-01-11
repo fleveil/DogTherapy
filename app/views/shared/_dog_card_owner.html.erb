@@ -1,0 +1,11 @@
+<div class='d-flex flex-column dog-card dog-card-owner'>
+  <%# dog name %>
+  <div class='d-inline-flex flex-row justify-content-center name-box'>
+    <h2><%= dog.name %></h2>
+  </div>
+
+  <%# dog image %>
+  <div class='img-box d-flex justify-content-center align-items-center'>
+    <%= cl_image_tag dog.photo.key, height: 250, width: 300, crop: :fill %>
+  </div>
+</div>
