@@ -1,8 +1,8 @@
 class Dog < ApplicationRecord
+  geocoded_by :address
   belongs_to :user
   has_many :reservations, dependent: :destroy
   has_one_attached :photo
-  geocoded_by :address
 
   validates :name, :breed, :energy, :affection, :size, :address, :description, presence: true
   validates :hypoallergenic, inclusion: { in: [true, false] }

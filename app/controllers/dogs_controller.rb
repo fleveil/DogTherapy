@@ -7,6 +7,7 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
+    @markers = [{ lat: @dog.latitude, lng: @dog.longitude }]
   end
 
   def new
@@ -16,7 +17,6 @@ class DogsController < ApplicationController
   def create
     @dog = Dog.new(dog_params)
     @dog.user = current_user
-# Add coordinates from address to dog instance
     if @dog.save
       redirect_to my_dog_path(@dog)
     else
@@ -30,7 +30,6 @@ class DogsController < ApplicationController
 
   def update
     @dog = Dog.find(params[:id])
-# Add coordinates from address to dog instance if address changed
     if @dog.update(dog_params)
       redirect_to my_dog_path(@dog)
     else
