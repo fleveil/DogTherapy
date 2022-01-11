@@ -7,8 +7,5 @@
   <%= f.submit class: "btn btn-primary"%>
   <% end  %>
 
-  <%= link_to new_dog_reservation_path(@dog) do %>
-    <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Schedule time with <%= dog.name %></button><br/>
-  <% end %>
-  <p class="my-3"><%= link_to "Back", dog_path(@dog), class: "btn btn-secondary" %></p>
+  <%= link_to "Back", dog_path(@dog), class: "btn btn-secondary mt-3", style: 'color:white'%>
 </div>

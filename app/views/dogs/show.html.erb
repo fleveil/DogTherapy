@@ -1,8 +1,6 @@
-<% dog = @dog %>
+<h1><%= @dog.name %></h1>
 
-<h1><%= dog.name %></h1>
-
-<%= cl_image_tag dog.photo.key, height: 250, width: 300, crop: :fill %>
+<%= cl_image_tag @dog.photo.key, height: 250, width: 300, crop: :fill %>
 
 <%# stats %>
 <div class='d-flex flex-column p-2'>
@@ -10,10 +8,10 @@
   <div class='d-flex flex-row align-items-center justify-content-between'>
     <p class='m-0'>Energy: </p>
     <div class='d-inline-flex'>
-      <% dog.energy.times do %>
+      <% @dog.energy.times do %>
         <i class="fas fa-bolt p-1" style='color:#ffc800'></i>
       <% end %>
-      <% (5 - dog.energy).times do %>
+      <% (5 - @dog.energy).times do %>
         <i class="fas fa-bolt p-1" style='color:#8c8c8c'></i>
       <% end %>
     </div>
@@ -23,10 +21,10 @@
   <div class='d-flex flex-row align-items-center justify-content-between'>
     <p class='m-0'>Affection: </p>
     <div class='d-inline-flex'>
-      <% dog.affection.times do %>
+      <% @dog.affection.times do %>
         <i class="fas fa-heart p-1" style='color:#cc0000'></i>
       <% end %>
-      <% (5 - dog.affection).times do %>
+      <% (5 - @dog.affection).times do %>
         <i class="fas fa-heart p-1" style='color:#8c8c8c'></i>
       <% end %>
     </div>
@@ -36,10 +34,10 @@
   <div class='d-flex flex-row align-items-center justify-content-between'>
     <p class='m-0'>Size: </p>
     <div class='d-inline-flex'>
-      <% dog.size.times do %>
+      <% @dog.size.times do %>
         <i class="fas fa-dog p-1" style='color:#331d14'></i>
       <% end %>
-      <% (5 - dog.size).times do %>
+      <% (5 - @dog.size).times do %>
         <i class="fas fa-dog p-1" style='color:#8c8c8c'></i>
       <% end %>
     </div>
@@ -49,7 +47,7 @@
   <div class='d-flex flex-row align-items-center justify-content-between'>
     <p class='m-0'>Hypoallergenic: </p>
     <div class='d-flex justify-content-center flex-grow-1'>
-      <% if dog.hypoallergenic == true %>
+      <% if @dog.hypoallergenic == true %>
         <i class="fas fa-check" style='color:#2b9600'></i>
       <% else %>
         <i class="fas fa-ban" style='color:#700000'></i>
@@ -59,15 +57,15 @@
 </div>
 
 <div>
-  <%= dog.breed %>
+  <%= @dog.breed %>
 </div>
 
 <div>
-  <%= dog.description %>
+  <%= @dog.description %>
 </div>
 
 <div>
-  <%= dog.address %>
+  <%= @dog.address %>
 </div>
 
 <div id="map"
@@ -78,4 +76,4 @@
 
 
 <%= link_to "Back", dogs_path, class: "btn btn-secondary", style: 'color:white'%>
-<%= link_to "Schedule time with #{dog.name}", new_dog_reservation_path(dog), class: "btn btn-primary", style: 'color:white'%>
+<%= link_to "Schedule time with #{@dog.name}", new_dog_reservation_path(@dog), class: "btn btn-primary", style: 'color:white'%>
