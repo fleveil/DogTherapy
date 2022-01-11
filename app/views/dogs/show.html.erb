@@ -1,3 +1,83 @@
+<% dog = @dog %>
+
+<h1><%= dog.name %></h1>
+
+<%= cl_image_tag dog.photo.key, height: 250, width: 300, crop: :fill %>
+
+<%# stats %>
+  <div class='d-flex flex-column p-2'>
+    <%# Dog's energy rating: %>
+    <div class='d-flex flex-row align-items-center justify-content-between'>
+      <p class='m-0'>Energy: </p>
+      <div class='d-inline-flex'>
+        <% dog.energy.times do %>
+          <i class="fas fa-bolt p-1" style='color:#ffc800'></i>
+        <% end %>
+        <% (5 - dog.energy).times do %>
+          <i class="fas fa-bolt p-1" style='color:#8c8c8c'></i>
+        <% end %>
+      </div>
+    </div>
+
+    <%# Dog's affection rating: %>
+    <div class='d-flex flex-row align-items-center justify-content-between'>
+      <p class='m-0'>Affection: </p>
+      <div class='d-inline-flex'>
+        <% dog.affection.times do %>
+          <i class="fas fa-heart p-1" style='color:#cc0000'></i>
+        <% end %>
+        <% (5 - dog.affection).times do %>
+          <i class="fas fa-heart p-1" style='color:#8c8c8c'></i>
+        <% end %>
+      </div>
+    </div>
+
+    <%# Dog's size rating: %>
+    <div class='d-flex flex-row align-items-center justify-content-between'>
+      <p class='m-0'>Size: </p>
+      <div class='d-inline-flex'>
+        <% dog.size.times do %>
+          <i class="fas fa-dog p-1" style='color:#331d14'></i>
+        <% end %>
+        <% (5 - dog.size).times do %>
+          <i class="fas fa-dog p-1" style='color:#8c8c8c'></i>
+        <% end %>
+      </div>
+    </div>
+
+    <%# Alergenic or not %>
+    <div class='d-flex flex-row align-items-center justify-content-between'>
+      <p class='m-0'>Hypoallergenic: </p>
+      <div class='d-flex justify-content-center flex-grow-1'>
+        <% if dog.hypoallergenic == true %>
+          <i class="fas fa-check" style='color:#2b9600'></i>
+        <% else %>
+          <i class="fas fa-ban" style='color:#700000'></i>
+        <% end %>
+      </div>
+    </div>
+
+    <div>
+      <%= dog.breed %>
+    </div>
+    <div>
+      <%= dog.description %>
+    </div>
+    <div>
+      <%= dog.address %>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="map"
      style="width: 100%; height: 480px; margin-top: 77px;"
