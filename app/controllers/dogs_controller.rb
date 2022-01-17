@@ -5,18 +5,9 @@ class DogsController < ApplicationController
     # find dogs in X radius of search address
     dogs = Dog.near([search.latitude, search.longitude], search.radius, units: :km)
 
-    # remove those that are already booked for time frame
-    free_dogs = dogs.map do |dog|
-      reservations = dog.reservations
-
-      raise
-    end
-
     @dogs = dogs.reject do |dog| # removes dogs owned by the user from the list
       current_user == dog.user
     end
-
-    # raise
   end
 
   def show
