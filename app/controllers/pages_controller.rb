@@ -15,7 +15,7 @@ class PagesController < ApplicationController
       redirect_to dogs_path(search: @search)
     else
       @dogs = homepage_dogs
-      render :home
+      render :search
     end
   end
 
