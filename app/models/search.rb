@@ -1,5 +1,6 @@
 class Search < ApplicationRecord
   geocoded_by :address
+  attribute :radius, :integer, default: 5
 
   validates :start_date, :end_date, :address, presence: true
   validate :start_date_not_in_past
