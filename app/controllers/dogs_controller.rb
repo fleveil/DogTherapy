@@ -4,8 +4,9 @@ class DogsController < ApplicationController
     search_radius = 5 # radius of search in kilometers
 
     # find dogs in X radius of search address
-
     dogs = Dog.near([search.latitude, search.longitude], search_radius, units: :km)
+
+
 
     @dogs = dogs.reject do |dog| # removes dogs owned by the user from the list
       current_user == dog.user
