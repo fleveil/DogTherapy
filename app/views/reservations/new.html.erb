@@ -2,7 +2,7 @@
   <h1 class = "header_dog">Book some time with <%= @dog.name %></h1>
 
   <%= simple_form_for [@dog, @reservation] do |f| %>
-  <%= f.input :date %>
+  <%= f.input :date, selected: @search.date  %>
   <%= f.submit class: "btn btn-primary"%>
   <% end %>
 
