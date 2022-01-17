@@ -3,11 +3,26 @@ class PagesController < ApplicationController
 
   def home
     @search = Search.new
-    @dogs = Dog.first(3)
+    @dogs = homepage_dogs
   end
 
   def create_search
-    puts 'it works?'
-    raise
+    @search = Search.new(search_params)
+    if @search.save
+      redirect_to dogs_path(search: @search)
+    else
+      @dogs = homepage_dogs
+      render :home
+    end
+  end
+
+  private
+
+  def search_params
+    params.require(:search).permit(:start_date, :end_date, :address)
+  end
+
+  def homepage_dogs
+    Dog.first(3) # could be changed to display something more randomized/varied
   end
 end

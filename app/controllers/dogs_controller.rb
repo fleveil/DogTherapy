@@ -1,5 +1,7 @@
 class DogsController < ApplicationController
   def index
+    search = Search.find(params[:search])
+    raise
     @dogs = Dog.all.reject do |dog| # this could definitely be made more efficient with a better SQL querry
       current_user == dog.user
     end
