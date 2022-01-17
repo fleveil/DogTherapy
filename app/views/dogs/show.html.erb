@@ -97,8 +97,8 @@
         <button type="button" class="btn btn-danger btn-md mr-1 mb-2 mx-2">Remove <%= @dog.name %></button><br/>
       <% end %>
     <% else %>
-      <%= link_to "Back", dogs_path, class: "btn btn-secondary mx-2", style: 'color:white'%>
-      <%= link_to "Schedule time with #{@dog.name}", new_dog_reservation_path(@dog), class: "btn btn-primary mx-2", style: 'color:white'%>
+      <%= link_to "Back", dogs_path(search: @search), class: "btn btn-secondary mx-2", style: 'color:white'%>
+      <%= link_to "Schedule time with #{@dog.name}", new_dog_reservation_path(@dog, search: @search), class: "btn btn-primary mx-2", style: 'color:white'%>
     <% end %>
   </div>
 </div>
