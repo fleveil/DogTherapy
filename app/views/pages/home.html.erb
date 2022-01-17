@@ -18,3 +18,14 @@
     <% end %>
   </div>
 </div>
+
+<div class="container mt-3">
+  <h1>blabla</h1>
+
+  <%= simple_form_for @search, url: create_search_path do |f| %>
+    <%= f.input :address %>
+    <%= f.input :start_date%>
+    <%= f.input :end_date%>
+    <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+</div>
