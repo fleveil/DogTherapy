@@ -2,10 +2,9 @@
   <h1 class = "header_dog">Book some time with <%= @dog.name %></h1>
 
   <%= simple_form_for [@dog, @reservation] do |f| %>
-  <%= f.input :start_date%>
-  <%= f.input :end_date%>
+  <%= f.input :date %>
   <%= f.submit class: "btn btn-primary"%>
-  <% end  %>
+  <% end %>
 
   <%= link_to "Back", dog_path(@dog), class: "btn btn-secondary mt-3", style: 'color:white'%>
 </div>
