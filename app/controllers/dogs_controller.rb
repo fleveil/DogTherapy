@@ -19,10 +19,14 @@ class DogsController < ApplicationController
   end
 
   def show
-    @search = Search.find(params[:search])
+    if params[:search].nil?
+      @search = false
+    else
+      @search = Search.find(params[:search])
+    end
+
     @dog = Dog.find(params[:id])
     @markers = [{ lat: @dog.latitude, lng: @dog.longitude }]
-    # raise
   end
 
   def new
