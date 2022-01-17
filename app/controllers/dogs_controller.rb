@@ -1,6 +1,11 @@
 class DogsController < ApplicationController
   def index
-    @dogs = Dog.all.reject do |dog| # this could definitely be made more efficient with a better SQL querry
+    search = Search.find(params[:search])
+
+    # find dogs in X radius of search address
+    dogs = Dog.near([search.latitude, search.longitude], search.radius, units: :km)
+
+    @dogs = dogs.reject do |dog| # removes dogs owned by the user from the list
       current_user == dog.user
     end
   end
