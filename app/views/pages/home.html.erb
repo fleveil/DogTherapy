@@ -3,20 +3,9 @@
     <div class="inside">
       <h1>Meet a dog</h1>
       <p>Make a new friend along the way</p>
-      <%# <%= link_to "Let's go!", dogs_path, class: "btn btn-lg btn-ghost", id: 'cta' %> %>
+      <%= link_to "Let's go!", new_search_path, class: "btn btn-lg btn-ghost", id: 'cta' %>
     </div>
   </div>
-</div>
-
-<div class="container mt-3">
-  <h1>When and where?</h1>
-
-  <%= simple_form_for @search, url: create_search_path do |f| %>
-    <%= f.input :address %>
-    <%= f.input :date %>
-    <%= f.input :radius, collection: 1..50, selected: 10 %>
-    <%= f.submit class: 'btn btn-primary' %>
-    <% end %>
 </div>
 
 <%# Dog cards %>

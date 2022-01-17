@@ -1,0 +1,10 @@
+<div class="container mt-3">
+  <h1>When and where?</h1>
+
+  <%= simple_form_for @search, url: create_search_path do |f| %>
+    <%= f.input :address %>
+    <%= f.input :date %>
+    <%= f.input :radius, collection: 1..50, selected: 10 %>
+    <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+</div>

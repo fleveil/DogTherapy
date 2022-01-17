@@ -2,8 +2,11 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @search = Search.new
     @dogs = homepage_dogs
+  end
+
+  def search
+    @search = Search.new
   end
 
   def create_search
