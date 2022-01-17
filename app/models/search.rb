@@ -1,10 +1,10 @@
 class Search < ApplicationRecord
   geocoded_by :address
-  attribute :radius, :integer, default: 5
 
-  validates :start_date, :end_date, :address, presence: true
+  validates :start_date, :end_date, :address, :radius, presence: true
   validate :start_date_not_in_past
   validate :end_date_not_before_start_date
+  validates :radius, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 50 }
   after_validation :geocode, if: :will_save_change_to_address?
 
   private

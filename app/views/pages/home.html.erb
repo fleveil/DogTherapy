@@ -24,8 +24,9 @@
 
   <%= simple_form_for @search, url: create_search_path do |f| %>
     <%= f.input :address %>
-    <%= f.input :start_date%>
-    <%= f.input :end_date%>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :radius, collection: 1..50, selected: 5 %>
     <%= f.submit class: 'btn btn-primary' %>
     <% end %>
 </div>
