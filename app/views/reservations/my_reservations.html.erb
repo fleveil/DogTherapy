@@ -4,8 +4,7 @@
   <thead>
       <tr>
         <th scope="col">Dog Name</th>
-        <th scope="col">Start Date</th>
-        <th scope="col">End Date</th>
+        <th scope="col">Date</th>
         <th scope="col">Status</th>
       </tr>
     </thead>
@@ -18,14 +17,13 @@
             <i class="fas fa-info-circle" style='color:#006edb'></i>
           <% end %>
         </td>
-        <td><%= reservation.start_date %></td>
-        <td><%= reservation.end_date %></td>
+        <td><%= reservation.date %></td>
         <td><%= reservation.status %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
   <div class='d-flex justify-content-center mt-3'>
-    <%= link_to "Book time with another dog", dogs_path, class: "btn btn-primary", style: 'color:white'%>
+    <%= link_to "Book time with another dog", root_path, class: "btn btn-primary", style: 'color:white'%>
   </div>
 </div>

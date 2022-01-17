@@ -19,7 +19,7 @@ class PagesController < ApplicationController
   private
 
   def search_params
-    params.require(:search).permit(:start_date, :end_date, :address, :radius)
+    params.require(:search).permit(:date, :address, :radius)
   end
 
   def homepage_dogs

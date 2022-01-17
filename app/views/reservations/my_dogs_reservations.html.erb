@@ -6,8 +6,7 @@
   <thead>
       <tr>
         <th scope="col">Dog Name</th>
-        <th scope="col">Start Date</th>
-        <th scope="col">End Date</th>
+        <th scope="col">Date</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -15,8 +14,7 @@
       <% @pending.each do |reservation| %>
       <tr>
         <td><%= reservation.dog.name %></td>
-        <td><%= reservation.start_date %></td>
-        <td><%= reservation.end_date %></td>
+        <td><%= reservation.date %></td>
         <td>
           <%= link_to 'accept', confirm_reservation_path(reservation), class:'btn btn-success text-white', method: :patch %>
           <%= link_to 'decline', decline_reservation_path(reservation), class:'btn btn-danger text-white', method: :patch %>
@@ -32,8 +30,7 @@
   <thead>
       <tr>
         <th scope="col">Dog Name</th>
-        <th scope="col">Start Date</th>
-        <th scope="col">End Date</th>
+        <th scope="col">Date</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -41,8 +38,7 @@
       <% @confirmed.each do |reservation| %>
       <tr>
         <td><%= reservation.dog.name %></td>
-        <td><%= reservation.start_date %></td>
-        <td><%= reservation.end_date %></td>
+        <td><%= reservation.date %></td>
         <td>
           <%= link_to 'decline', decline_reservation_path(reservation), class:'btn btn-danger text-white', method: :patch %>
         </td>
@@ -56,8 +52,7 @@
   <thead>
       <tr>
         <th scope="col">Dog Name</th>
-        <th scope="col">Start Date</th>
-        <th scope="col">End Date</th>
+        <th scope="col">Date</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -65,8 +60,7 @@
       <% @declined.each do |reservation| %>
       <tr>
         <td><%= reservation.dog.name %></td>
-        <td><%= reservation.start_date %></td>
-        <td><%= reservation.end_date %></td>
+        <td><%= reservation.date %></td>
         <td>
           <%= link_to 'accept', confirm_reservation_path(reservation), class:'btn btn-success text-white', method: :patch %>
         </td>
