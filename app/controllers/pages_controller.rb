@@ -2,8 +2,11 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @search = Search.new
     @dogs = homepage_dogs
+  end
+
+  def search
+    @search = Search.new
   end
 
   def create_search
@@ -12,7 +15,7 @@ class PagesController < ApplicationController
       redirect_to dogs_path(search: @search)
     else
       @dogs = homepage_dogs
-      render :home
+      render :search
     end
   end
 

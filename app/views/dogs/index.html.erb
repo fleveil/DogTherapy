@@ -6,7 +6,7 @@
 <div class='d-flex justify-content-center my-4'>
   <div class='card-grid'>
     <% @dogs.each do |dog| %>
-      <%= link_to dog_path(dog) do %>
+      <%= link_to dog_path(dog, search: @search) do %>
         <div class='grid-item'>
           <%= render 'shared/dog_card', dog: dog %>
         </div>

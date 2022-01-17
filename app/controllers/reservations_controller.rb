@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   def new
+    @search = Search.find(params[:search])
     @reservation = Reservation.new
     @dog = Dog.find(params[:dog_id])
   end

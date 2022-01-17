@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   patch '/my_dogs_reservation/:id/confirm', to: 'reservations#confirm_reservation', as: 'confirm_reservation'
   patch '/my_dogs_reservations/:id/decline', to: 'reservations#decline_reservation', as: 'decline_reservation'
 
-  # route for home page address search
-  post '/', to: "pages#create_search", as: 'create_search'
+  # routes for search
+  get '/search', to: "pages#search", as: 'new_search'
+  post '/search', to: "pages#create_search", as: 'create_search'
 
   resources :dogs do
     resources :reservations, except: %i[show destroy update edit index]

@@ -1,14 +1,14 @@
 class DogsController < ApplicationController
   def index
-    search = Search.find(params[:search])
+    @search = Search.find(params[:search])
 
     # find dogs in X radius of search address
-    dogs = Dog.near([search.latitude, search.longitude], search.radius, units: :km)
+    dogs = Dog.near([@search.latitude, @search.longitude], @search.radius, units: :km)
 
     # filter out dogs that are already reserved at searched date
     free_dogs = dogs.select do |dog|
       dog.reservations.select do |reservation|
-        (reservation.date == search.date) && (reservation.status == 'confirmed')
+        (reservation.date == @search.date) && (reservation.status == 'confirmed')
       end.empty?
     end
 
@@ -19,6 +19,12 @@ class DogsController < ApplicationController
   end
 
   def show
+    if params[:search].nil?
+      @search = false
+    else
+      @search = Search.find(params[:search])
+    end
+
     @dog = Dog.find(params[:id])
     @markers = [{ lat: @dog.latitude, lng: @dog.longitude }]
   end
