@@ -2,7 +2,7 @@
   <h1>When would you like to see a dog?</h1>
 
   <%= simple_form_for @search, url: create_search_path do |f| %>
-    <%= f.input :address, label: 'Your address please' %>
+    <%= f.input :address, label: 'Your address please', placeholder: 'street number, street name, city' %>
     <%= f.input :radius, collection: 1..50, selected: 10, label: 'Maximum distance you want to travel (km)' %>
     <%= f.input :date, label: 'Which day?' %>
     <%= f.submit class: 'btn btn-primary' %>
