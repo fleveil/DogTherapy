@@ -10,8 +10,9 @@ puts 'done!'
 
 # Seed users
 print 'Seeding users - '
-User.create!(user_name:"John", password: "123456", email: "a@a.a")
-user2 = User.create!(user_name:"Bob", password: "123456", email: "b@b.b")
+User.create!(user_name: "John", password: "123456", email: "a@a.a")
+User.create!(user_name: "Stacy", password: "123456", email: "b@b.b")
+user2 = User.create!(user_name: "Bob", password: "123456", email: "c@c.c")
 puts 'done!'
 
 # Seed dogs
