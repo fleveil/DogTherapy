@@ -6,7 +6,9 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @search = Search.find(params[:reservation][:search_id])
     @reservation = Reservation.new(reservation_params)
+
     @reservation.user = current_user
     @dog = Dog.find(params[:dog_id])
     @reservation.dog = @dog
@@ -14,7 +16,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to my_reservations_path
     else
-      render :new
+      render :new, locals: { parameter: @search }
     end
   end
 

@@ -3,7 +3,8 @@
 
   <%= simple_form_for [@dog, @reservation] do |f| %>
   <%= f.input :date, selected: @search.date  %>
-  <%= f.submit class: "btn btn-primary"%>
+  <%= f.input :search_id, as: :hidden, input_html: { value: @search.id } %>
+  <%= f.submit class: "btn btn-primary" %>
   <% end %>
 
   <%= link_to "Back", dog_path(@dog, search: @search), class: "btn btn-secondary mt-3", style: 'color:white'%>
